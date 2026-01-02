@@ -9,6 +9,8 @@
 
 **A comprehensive data engineering and analysis project on 50+ million Reddit comments**
 
+### 🌐 [View Live Demo](https://reddit-comments-may-2015-data-analy.vercel.app/)
+
 [Dataset](https://www.kaggle.com/datasets/kaggle/reddit-comments-may-2015) · [Phase 1](#phase-1-relational-model-postgresql) · [Phase 2](#phase-2-document-model-mongodb) · [Phase 3](#phase-3-data-mining--cleaning)
 
 </div>
@@ -96,10 +98,18 @@ Reddit-Comments-May-2015-Data-Analysis/
 ├── submission/                        # Final submission package
 │   └── CSCI620_Term_Project_Group_7.zip
 │
+├── website/                           # Project showcase website
+│   ├── index.html                     # Main HTML page
+│   ├── styles.css                     # Styling
+│   ├── script.js                      # Interactive features
+│   └── assets/images/                 # Diagrams and images
+│
 ├── kaggle.json                        # Kaggle API credentials
 ├── requirements.txt                   # Python dependencies
 └── README.md                          # This file
 ```
+
+> 🌐 **Live Website**: [reddit-comments-may-2015-data-analy.vercel.app](https://reddit-comments-may-2015-data-analy.vercel.app/)
 
 ---
 
