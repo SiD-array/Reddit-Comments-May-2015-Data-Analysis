@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Comments Analysis | Big Data Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fab fa-reddit-alien"></i>
+                <span>Reddit Analysis</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#dataset" class="nav-link">Dataset</a></li>
+                <li><a href="#phase1" class="nav-link">Phase 1</a></li>
+                <li><a href="#phase2" class="nav-link">Phase 2</a></li>
+                <li><a href="#phase3" class="nav-link">Phase 3</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="https://github.com/SiD-array/Reddit-Comments-May-2015-Data-Analysis" target="_blank" class="nav-link nav-github"><i class="fab fa-github"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">CSCI-620 Big Data Project</div>
+            <h1 class="hero-title">
+                <span class="title-gradient">Reddit Comments</span>
+                <br>May 2015 Analysis
+            </h1>
+            <p class="hero-subtitle">
+                A comprehensive data engineering pipeline analyzing <span class="highlight">50+ million</span> Reddit comments 
+                using PostgreSQL, MongoDB, and association rule mining.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="54000000">0</div>
+                    <div class="stat-label">Comments Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">GB Dataset</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Project Phases</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#dataset" class="btn btn-primary">
+                    <span>Explore Project</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="https://github.com/SiD-array/Reddit-Comments-May-2015-Data-Analysis" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i>
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Group 7</span>
+                <h2 class="section-title">Meet the Team</h2>
+            </div>
+            <div class="team-grid">
+                <a href="https://www.linkedin.com/in/hrithik9120/" target="_blank" class="team-card-link">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>Hrithik Gaikwad</h3>
+                        <p class="team-id">hg3916</p>
+                        <span class="linkedin-badge"><i class="fab fa-linkedin"></i> Connect</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/jane0x5a/" target="_blank" class="team-card-link">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>Jie Zhang</h3>
+                        <p class="team-id">jz7563</p>
+                        <span class="linkedin-badge"><i class="fab fa-linkedin"></i> Connect</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/siddharth-bhople/" target="_blank" class="team-card-link">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>Siddharth Bhople</h3>
+                        <p class="team-id">sb8336</p>
+                        <span class="linkedin-badge"><i class="fab fa-linkedin"></i> Connect</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Section -->
+    <section id="dataset" class="dataset-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Data</span>
+                <h2 class="section-title">Reddit Comments Dataset</h2>
+                <p class="section-desc">One of the largest publicly available social media datasets</p>
+            </div>
+            <div class="dataset-content">
+                <div class="dataset-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Data Source</h3>
+                            <p>Kaggle Reddit Comments May 2015</p>
+                            <a href="https://www.kaggle.com/datasets/kaggle/reddit-comments-may-2015" target="_blank" class="info-link">
+                                View Dataset <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Time Period</h3>
+                            <p>May 2015 (Full Month)</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Format</h3>
+                            <p>SQLite Database (~30GB)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataset-fields">
+                    <h3><i class="fas fa-columns"></i> Dataset Fields</h3>
+                    <div class="fields-grid">
+                        <div class="field-item">
+                            <span class="field-name">author</span>
+                            <span class="field-type">TEXT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">subreddit</span>
+                            <span class="field-type">TEXT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">body</span>
+                            <span class="field-type">TEXT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">score</span>
+                            <span class="field-type">INT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">ups / downs</span>
+                            <span class="field-type">INT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">gilded</span>
+                            <span class="field-type">INT</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">created_utc</span>
+                            <span class="field-type">TIMESTAMP</span>
+                        </div>
+                        <div class="field-item">
+                            <span class="field-name">controversiality</span>
+                            <span class="field-type">INT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1: Relational Model -->
+    <section id="phase1" class="phase-section phase-1">
+        <div class="container">
+            <div class="phase-header">
+                <div class="phase-number">01</div>
+                <div class="phase-info">
+                    <span class="phase-tag">PostgreSQL</span>
+                    <h2 class="phase-title">Relational Data Model</h2>
+                    <p class="phase-desc">Normalized schema design following 3NF principles</p>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="phase-details">
+                    <div class="detail-card">
+                        <h3><i class="fas fa-sitemap"></i> Schema Design</h3>
+                        <p>6 normalized tables with proper foreign key relationships maintaining referential integrity across the dataset.</p>
+                        <ul class="feature-list">
+                            <li><span class="table-name">Users</span> - Author profiles & flair</li>
+                            <li><span class="table-name">Subreddit</span> - Community metadata</li>
+                            <li><span class="table-name">Post</span> - Post-level data</li>
+                            <li><span class="table-name">Post_Link</span> - Post references</li>
+                            <li><span class="table-name">Comment</span> - All comments with scores</li>
+                            <li><span class="table-name">Moderation</span> - Moderation actions</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-cogs"></i> Key Features</h3>
+                        <ul class="feature-list">
+                            <li>Automatic Kaggle dataset download</li>
+                            <li>Streaming SQLite ingestion</li>
+                            <li>Batch processing (10K records)</li>
+                            <li>Progress tracking & error handling</li>
+                            <li>Foreign key constraint validation</li>
+                            <li>Sample mode for testing</li>
+                        </ul>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span><i class="fas fa-terminal"></i> Load Data Command</span>
+                        </div>
+                        <pre><code>python load_data.py \
+    --input database.sqlite \
+    --host localhost \
+    --port 5432 \
+    --user postgres \
+    --password yourpass \
+    --dbname redditdb</code></pre>
+                    </div>
+                </div>
+                <div class="phase-diagram">
+                    <div class="diagram-container">
+                        <img src="assets/images/relational_schema.jpg" alt="Relational Schema Diagram" class="diagram-img" onclick="openModal(this)">
+                        <div class="diagram-caption">
+                            <i class="fas fa-expand"></i> Click to enlarge
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Document Model -->
+    <section id="phase2" class="phase-section phase-2">
+        <div class="container">
+            <div class="phase-header">
+                <div class="phase-number">02</div>
+                <div class="phase-info">
+                    <span class="phase-tag">MongoDB</span>
+                    <h2 class="phase-title">Document-Oriented Model</h2>
+                    <p class="phase-desc">Hybrid embedding strategy optimized for read performance</p>
+                </div>
+            </div>
+            <div class="phase-content reverse">
+                <div class="phase-diagram">
+                    <div class="diagram-container">
+                        <img src="assets/images/doc_model_visual.png" alt="Document Model Diagram" class="diagram-img" onclick="openModal(this)">
+                        <div class="diagram-caption">
+                            <i class="fas fa-expand"></i> Click to enlarge
+                        </div>
+                    </div>
+                </div>
+                <div class="phase-details">
+                    <div class="detail-card">
+                        <h3><i class="fas fa-layer-group"></i> Collections</h3>
+                        <div class="collection-grid">
+                            <div class="collection-item">
+                                <span class="collection-name">users</span>
+                                <span class="collection-desc">Author profiles</span>
+                            </div>
+                            <div class="collection-item">
+                                <span class="collection-name">subreddits</span>
+                                <span class="collection-desc">Community data</span>
+                            </div>
+                            <div class="collection-item">
+                                <span class="collection-name">posts</span>
+                                <span class="collection-desc">Hybrid embedded</span>
+                            </div>
+                            <div class="collection-item">
+                                <span class="collection-name">comments</span>
+                                <span class="collection-desc">Full analytics</span>
+                            </div>
+                            <div class="collection-item">
+                                <span class="collection-name">moderation</span>
+                                <span class="collection-desc">Mod signals</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-card highlight-card">
+                        <h3><i class="fas fa-bolt"></i> Hybrid Design</h3>
+                        <p>Top N comments embedded in posts for fast reads, while all comments stored separately for analytics. Balances MongoDB's 16MB document limit with performance.</p>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span><i class="fas fa-terminal"></i> MongoDB Loader</span>
+                        </div>
+                        <pre><code>python load_to_mongo.py \
+    --input database.sqlite \
+    --mongo_uri "mongodb://localhost:27017/" \
+    --dbname reddit_may2015 \
+    --chunksize 50000 \
+    --embed-cap 200 \
+    --reset</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: Data Mining -->
+    <section id="phase3" class="phase-section phase-3">
+        <div class="container">
+            <div class="phase-header">
+                <div class="phase-number">03</div>
+                <div class="phase-info">
+                    <span class="phase-tag">Data Mining</span>
+                    <h2 class="phase-title">Association Rule Mining</h2>
+                    <p class="phase-desc">Pattern discovery using Apriori algorithm</p>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="phase-details full-width">
+                    <div class="mining-overview">
+                        <div class="mining-step">
+                            <div class="step-icon">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <h4>Data Cleaning</h4>
+                            <p>Remove deleted content, fix inconsistencies, validate timestamps</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="mining-step">
+                            <div class="step-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h4>Transaction Creation</h4>
+                            <p>Transform comments into itemsets with subreddit, score, flags</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="mining-step">
+                            <div class="step-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h4>Apriori Mining</h4>
+                            <p>Find frequent itemsets meeting support threshold</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="mining-step">
+                            <div class="step-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Rule Generation</h4>
+                            <p>Generate IF-THEN rules with confidence metrics</p>
+                        </div>
+                    </div>
+                    
+                    <div class="params-section">
+                        <h3><i class="fas fa-sliders-h"></i> Mining Parameters</h3>
+                        <div class="params-grid">
+                            <div class="param-card">
+                                <div class="param-header">
+                                    <span class="param-name">min_support</span>
+                                    <span class="param-value">0.01 (1%)</span>
+                                </div>
+                                <p>Minimum frequency threshold for itemsets</p>
+                            </div>
+                            <div class="param-card">
+                                <div class="param-header">
+                                    <span class="param-name">min_confidence</span>
+                                    <span class="param-value">0.5 (50%)</span>
+                                </div>
+                                <p>Minimum probability for rules</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transaction-section">
+                        <h3><i class="fas fa-receipt"></i> Transaction Structure</h3>
+                        <div class="transaction-example">
+                            <div class="transaction-item">
+                                <span class="item-type subreddit">subreddit:AskReddit</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="item-type score">high_score</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="item-type flag">gilded</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="item-type flag">edited</span>
+                            </div>
+                        </div>
+                        <p class="transaction-desc">Each comment becomes a transaction with subreddit, score category, and status flags</p>
+                    </div>
+
+                    <div class="cleaning-rules">
+                        <h3><i class="fas fa-filter"></i> Data Cleaning Rules</h3>
+                        <div class="rules-grid">
+                            <div class="rule-item">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Drop missing authors/bodies</span>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Remove [deleted]/[removed]</span>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Filter invalid timestamps</span>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-wrench"></i>
+                                <span>Fix score = ups - downs</span>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-eraser"></i>
+                                <span>Nullify symbol-only flair</span>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-check-double"></i>
+                                <span>Validate FK references</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Performance</span>
+                <h2 class="section-title">Benchmark Results</h2>
+                <p class="section-desc">Query performance improvements with optimized indexing</p>
+            </div>
+            
+            <div class="benchmark-table">
+                <div class="table-header">
+                    <div class="table-col">Query</div>
+                    <div class="table-col">Before Index</div>
+                    <div class="table-col">After Index</div>
+                    <div class="table-col">Speedup</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">AskReddit latest 50 posts</div>
+                    <div class="table-col time-before">2.34s</div>
+                    <div class="table-col time-after">0.12s</div>
+                    <div class="table-col speedup"><span class="speedup-badge">19.5x</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">Top 20 subreddits by avg score</div>
+                    <div class="table-col time-before">5.67s</div>
+                    <div class="table-col time-after">0.89s</div>
+                    <div class="table-col speedup"><span class="speedup-badge">6.4x</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">Top 20 authors by post count</div>
+                    <div class="table-col time-before">3.21s</div>
+                    <div class="table-col time-after">0.45s</div>
+                    <div class="table-col speedup"><span class="speedup-badge">7.1x</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">Gilded but not archived posts</div>
+                    <div class="table-col time-before">1.89s</div>
+                    <div class="table-col time-after">0.08s</div>
+                    <div class="table-col speedup"><span class="speedup-badge high">23.6x</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">Posts by authors containing 'cat'</div>
+                    <div class="table-col time-before">4.56s</div>
+                    <div class="table-col time-after">0.67s</div>
+                    <div class="table-col speedup"><span class="speedup-badge">6.8x</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-col query-name">Avg comments per post (top 10)</div>
+                    <div class="table-col time-before">8.23s</div>
+                    <div class="table-col time-after">1.34s</div>
+                    <div class="table-col speedup"><span class="speedup-badge">6.1x</span></div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="metric-value">11.6x</div>
+                    <div class="metric-label">Avg Speedup</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="metric-value">23.6x</div>
+                    <div class="metric-label">Max Speedup</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">Indexes Created</div>
+                </div>
+            </div>
+
+            <div class="rule-examples">
+                <h3><i class="fas fa-lightbulb"></i> Sample Association Rules Discovered</h3>
+                <div class="rules-showcase">
+                    <div class="rule-card">
+                        <div class="rule-if">IF <span class="rule-item">subreddit:nfl</span></div>
+                        <div class="rule-then">THEN <span class="rule-item">low_score</span></div>
+                        <div class="rule-metrics">
+                            <span>Support: 7.09%</span>
+                            <span>Confidence: 92.32%</span>
+                            <span class="lift">Lift: 1.16</span>
+                        </div>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-if">IF <span class="rule-item">gilded</span></div>
+                        <div class="rule-then">THEN <span class="rule-item">very_high_score</span></div>
+                        <div class="rule-metrics">
+                            <span>Support: 2.34%</span>
+                            <span>Confidence: 78.5%</span>
+                            <span class="lift">Lift: 3.42</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technologies</span>
+                <h2 class="section-title">Tech Stack</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-table"></i>
+                    <span>Pandas</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>MLxtend</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>SQLite</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fab fa-reddit-alien"></i>
+                    <span>Reddit Comments Analysis</span>
+                </div>
+                <p class="footer-text">
+                    CSCI-620 Big Data Project | Rochester Institute of Technology
+                </p>
+                <div class="footer-links">
+                    <a href="https://github.com/SiD-array/Reddit-Comments-May-2015-Data-Analysis" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="https://www.kaggle.com/datasets/kaggle/reddit-comments-may-2015" target="_blank">
+                        <i class="fab fa-kaggle"></i> Dataset
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Group 7. Made with <i class="fas fa-heart"></i> for Big Data</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
